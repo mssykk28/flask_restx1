@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restx import Api
 
-from src.api.todo import api as todo_api
+from src.api.todo.methods import api as todo_api
 
 bl = Blueprint("api", __name__)
 api = Api(
