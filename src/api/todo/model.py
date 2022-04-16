@@ -18,3 +18,12 @@ class TodoModel:
                 self.status.title: self.status,
             }
         )
+
+    def request_model(self):
+        return self.api.model(
+            "todoRequestModel",
+            model={
+                self.todo_id.title: self.todo_id,
+                self.task.title: self.task,
+            }
+        )
