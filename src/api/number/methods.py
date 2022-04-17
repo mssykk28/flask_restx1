@@ -22,3 +22,17 @@ class Number(Resource):
 
 def _add_number(number, number2, number3) -> int:
     return number + number2 + number3
+
+
+@api.route("/lambda")
+class NumberLambda(Resource):
+    @api.marshal_with(_model.response_model())
+    @api.expect(_model.request_model())
+    def post(self):
+        request_data = request.get_json()
+        number = request_data["number"]
+        number2 = request_data["number2"]
+        number3 = request_data["number3"]
+
+        add_num = lambda x, y, z: x + y + z
+        return {"result": add_num(number, number2, number3)}
